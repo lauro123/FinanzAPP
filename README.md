@@ -1,4 +1,4 @@
-# A Blank PhoneGap App
+# https://lauro123.github.io/FinanzAPP/www/html/info.html
 
 ## Usage
 
