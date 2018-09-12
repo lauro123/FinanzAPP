@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>FinanzAPP</title>
+    <script src="../js/jquery-3.3.1.slim.min.js"crossorigin="anonymous"></script>
+    <script src="../js/popper.min.js"        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"crossorigin="anonymous">
+    <script src="../js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/angular.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="../js/nightly.js" charset="utf-8"></script>
+    <script src="../js/swipe.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../css/css_index.css">
+</head>
+
+<body ng-app="finanzas" ng-controller="controller">
+    <br>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            
+                <img src="../luna.png" id="btn" width="30" height="30" alt="Modo Nocturno">
+            
+        
+        <a class="nav-link navbar-brand" href="semana.html">Semana <span class="sr-only"></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+           
+            <li class="nav-item">
+                <a class="nav-link" href="calculo.html">Cálculo <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="info.html">Información <span class="sr-only"></span></a>
+              </li>
+          </ul>
+          
+        </div>
+      </nav>
+
+    <br>
+    <div>
+        <script type="text/javascript">
+            var Nightly = new Nightly(true);
+            document.getElementById("btn").addEventListener("click", function () {
+                Nightly.toggle();
+            });
+        </script>
+
+        <div class="alert alert-danger" ng-show="danger()" role="alert">
+            <span>Gasto semanal excedido por: {{((gastoMensual/4)-total)*-1}}</span>
+        </div>
+        <table class="table">
+            <tr class="thead-light">
+                <th scope="col">Día</th>
+                <th scope="col">Gasto</th>
+                <th scope="col"></th>
+                <th scope="col">Totales</th>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Lunes</th>
+                <td>
+                    <input class="form-control" type="number" id="Lunes" ng-model="lunes" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Lunes" value="+" ng-click="sumLunes()" />
+                </td>
+                <td class="align-middle">{{totalLunes}}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Martes</th>
+                <td>
+                    <input class="form-control" type="number" id="Martes" ng-model="martes" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Martes" value="+" ng-click="sumMartes()" />
+                </td>
+                <td class="align-middle">{{totalMartes}}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Miercoles</th>
+                <td>
+                    <input class="form-control" type="number" id="Miercoles" ng-model="miercoles" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Miercoles" value="+" ng-click="sumMiercoles()" />
+                </td>
+                <td class="align-middle">{{totalMiercoles}}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Jueves</th>
+                <td>
+                    <input class="form-control" type="number" id="Jueves" ng-model="jueves" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Jueves" value="+" ng-click="sumJueves()" />
+                </td>
+                <td class="align-middle">{{totalJueves}}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Viernes</th>
+                <td>
+                    <input class="form-control" type="number" id="Viernes" ng-model="viernes" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Viernes" value="+" ng-click="sumViernes()" />
+                </td>
+                <td class="align-middle">{{totalViernes}}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Sabado</th>
+                <td>
+                    <input class="form-control" type="number" id="Sabado" ng-model="sabado" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Sabado" value="+" ng-click="sumSabado()" />
+                </td>
+                <td class="align-middle">{{totalSabado}}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="align-middle">Domingo</th>
+                <td>
+                    <input class="form-control" type="number" id="Domingo" ng-model="domingo" />
+                </td>
+                <td>
+                    <input class="btn btn-secondary" type="button" name="Domingo" value="+" ng-click="sumDomingo()" />
+                </td>
+                <td class="align-middle">{{totalDomingo}}</td>
+            </tr>
+        </table>
+        <p style="font-size: 15px">
+            Total semana = {{total}}
+        </p>
+        <p>
+            <input class="btn btn-primary" type="button" value="Reiniciar semana"  data-toggle="modal" data-target="#confirmModal" >
+        </p>
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Reiniciar Semana</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Desea reiniciar la semana?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" ng-click="resetWeek()">Reiniciar semana</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+    </div>
+
+    <script type="text/javascript" src="../../platforms/browser/www/cordova.js"></script>
+    
+</body>
+
+</html>

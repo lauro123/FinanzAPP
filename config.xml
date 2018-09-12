@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.Lauro.FinanzAPP" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>FinanzAPP</name>
+    <platform name="android">
+        <icon src="www/icon.png" width="180" height="180" />
+    </platform>
+    <description>
+        Finanzas personales
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        Lauro
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

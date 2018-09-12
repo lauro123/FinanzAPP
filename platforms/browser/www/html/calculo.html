@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>FinanzAPP</title>
+    <script src="../js/jquery-3.3.1.slim.min.js"crossorigin="anonymous"></script>
+    <script src="../js/popper.min.js"        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"crossorigin="anonymous">
+    <script src="../js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/angular.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="../js/nightly.js" charset="utf-8"></script>
+    <script src="../js/swipe.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../css/css_index.css">
+</head>
+
+<body ng-app="finanzas" ng-controller="controller">
+    <br>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <img src="../luna.png" id="btn" width="30" height="30" alt="Modo Nocturno">
+        
+        <a class="nav-link navbar-brand" href="calculo.html">Cálculo <span class="sr-only"></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="semana.html">Semana <span class="sr-only"></span></a>
+            </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" href="info.html">Información <span class="sr-only"></span></a>
+              </li>
+          </ul>
+          
+        </div>
+      </nav>
+    <br>
+    <div class="calculo">
+        <script type="text/javascript">
+            var Nightly = new Nightly(true);
+            document.getElementById("btn").addEventListener("click", function () {
+                Nightly.toggle();
+            });
+        </script>
+
+
+
+        <table class="table">
+
+            <tbody>
+                <tr>
+                    <th scope="row">Sueldo: </th>
+                    <td><input type="number" ng-model="sueldo" ng-change="guardarDatos()" placeholder="{{sueldo}}"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Ahorro: </th>
+                    <td><input type="number" ng-model="ahorro" min="0" max="100" ng-change="guardarDatos()" placeholder="{{ahorro}} %"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Gastos fijos: </th>
+                    <td><input type="number" ng-model="gFijos" ng-change="guardarDatos()" placeholder="{{gFijos}}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Viaje </th>
+                    <td><input type="number" id="viaje" ng-model="viaje" ng-change="guardarDatos()" placeholder="{{viaje}}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Tarjetas </th>
+                    <td><input type="number" ng-model="tarjetas" ng-change="guardarDatos()" placeholder="{{tarjetas}}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Semana </th>
+                    <td>{{gastoMensual/4}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Disponible </th>
+                    <td>{{gastoMensual/4 - viaje}}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Ahorro </th>
+                    <td>{{savings}}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Gasto mensual </th>
+                    <td>{{gastoMensual}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="../../platforms/browser/www/cordova.js"></script>
+</body>
+
+</html>

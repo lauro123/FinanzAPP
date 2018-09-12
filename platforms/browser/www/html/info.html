@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>FinanzAPP</title>
+    <script src="../js/jquery-3.3.1.slim.min.js"crossorigin="anonymous"></script>
+    <script src="../js/popper.min.js"        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"crossorigin="anonymous">
+    <script src="../js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/angular.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="../js/nightly.js" charset="utf-8"></script>
+    <script src="../js/swipe.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../css/css_index.css">
+</head>
+
+<body ng-app="finanzas" ng-controller="controller">
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <img src="../luna.png" id="btn" width="30" height="30" alt="Modo Nocturno">
+
+        <a class="nav-link navbar-brand" href="info.html">Información <span class="sr-only"></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link " href="semana.html">Semana <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calculo.html">Cálculo <span class="sr-only"></span></a>
+              </li>
+              
+          </ul>
+          
+        </div>
+      </nav>
+    
+    <br>
+    <div>
+
+        <script type="text/javascript">
+            var Nightly = new Nightly(true);
+            document.getElementById("btn").addEventListener("click", function () {
+                Nightly.toggle();
+            });
+        </script>
+        <table class="table">
+            <tr class="thead-light">
+                <th scope="col" colspan="2">Informacion</th>
+
+            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row">Total semana anterior: </th>
+                    <td>{{totalSemanaAnt}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Total mes: </th>
+                    <td>{{totalMes}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <p>
+            <input class="btn btn-primary" type="button" value="Reiniciar mes"  data-toggle="modal" data-target="#confirmModal" >
+        </p>
+        <table class="table">
+            <tr class="thead-light">
+                <th scope="col" colspan="2">Manual de uso. Cálculo mensual</th>
+
+            </tr>
+            <tbody>
+                <tr>
+                    <th scope="row">Sueldo: </th>
+                    <td>Salario mensual</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Ahorro: </th>
+                    <td>Porcentaje del sueldo que deseas ahorrar</td>
+                </tr>
+                <tr>
+                    <th scope="row">Gastos fijos: </th>
+                    <td>Dinero destinado a gastos fijos. Valor mensual</td>
+                </tr>
+                <tr>
+                    <th scope="row">Viaje: </th>
+                    <td>Dinero destinado al viaje. Valor semanal</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tarjetas: </th>
+                    <td>Dinero destinado al pago de tarjetas. Valor mensual</td>
+                </tr>
+                <tr>
+                    <th scope="row">Semana: </th>
+                    <td>Dinero destinado a cada semana del mes</td>
+                </tr>
+                <tr>
+                    <th scope="row">Disponible: </th>
+                    <td>Dinero disponible para utilizar cada semana. (Semana - Viaje)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ahorro: </th>
+                    <td>Dinero ahorrado</td>
+                </tr>
+                <tr>
+                    <th scope="row">Gasto mensual: </th>
+                    <td>Dinero estimado que gastarás en el mes</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">    
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Reiniciar Mes</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Desea reiniciar el mes?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" ng-click="resetMonth()">Reiniciar mes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+    <script type="text/javascript" src="../../platforms/browser/www/cordova.js"></script>
+</body>
+
+</html>

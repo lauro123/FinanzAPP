@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>FinanzAPP</title>
+    <script src="./js/jquery-3.3.1.slim.min.js"crossorigin="anonymous"></script>
+    <script src="./js/popper.min.js"        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css"crossorigin="anonymous">
+    <script src="./js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="./js/nightly.js" charset="utf-8"></script>
+    <script src="./js/swipe.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/css_index.css">
+    <link rel="stylesheet" href="./css/animation.css">
+</head>
+
+<body ng-app="finanzas" ng-controller="controller">
+   
+    <nav style="text-align:center;position: fixed;top: 35%;left: 0%;">
+        <h1 style="font-size:300%">
+        <a href="html/semana.html" style=" text-decoration: none;">FinanzAPP</a>
+        </h1>
+        <h2>Control de finanzas personales</h2>
+        <h6>Versión 2
+        </h6>
+        <h5>
+        <img src="./luna.png" id="btn" width="30" height="30" alt="Modo Nocturno">
+        </h5>
+        
+    </nav>
+
+    <script type="text/javascript">
+        var Nightly = new Nightly(true);
+        document.getElementById("btn").addEventListener("click", function () {
+            Nightly.toggle();
+        });
+    </script>
+
+    <script type="text/javascript" src="../platforms/browser/www/cordova.js"></script>
+    
+
+</body>
+
+</html>
